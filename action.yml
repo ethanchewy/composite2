@@ -4,7 +4,7 @@ description: "Run multiple run steps"
 inputs:
   favorite_animal:
     description: 'Your name'
-    default: 'Ethan'
+    default: 'poodle'
     
 outputs:
   random_number: 
@@ -15,5 +15,6 @@ runs:
     using: "composite"
     steps:
       - run: echo inside of a composite action!!!
+      - run: echo favorite animal ${{ inputs.favorite_animal }}
       - id: random_number_generator
         run: echo "::set-output name=random_id::$(echo $RANDOM)"
