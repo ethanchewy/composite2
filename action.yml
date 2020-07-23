@@ -1,1 +1,19 @@
+name: "Composite Action Test"
+description: "Run multiple run steps"
 
+inputs:
+  favorite_animal:
+    description: 'Your name'
+    default: 'Ethan'
+    
+outputs:
+  random_number: 
+    description: "Random number"
+    value: ${{ steps.random_number_generator.outputs.random_id }}
+    
+runs:
+    using: "composite"
+    steps:
+      - run: echo inside of a composite action!!!
+      - id: random_number_generator
+        run: echo "::set-output name=random_id::$(echo $RANDOM)"
