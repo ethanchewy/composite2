@@ -15,6 +15,9 @@ runs:
     using: "composite"
     steps:
       - run: echo inside of a composite action!!!
+        shell: bash
       - run: echo favorite animal ${{ inputs.favorite_animal }}
+        shell: bash
       - id: random_number_generator
+        shell: bash
         run: echo "::set-output name=random_id::$(echo $RANDOM)"
